@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_registro_ingreso"
+        android:icon="@drawable/ic_add_circle"
+        android:title="Ingresos"
+        android:titleCondensed="Ingresos" />
+
+    <item
+        android:id="@+id/nav_registro_gasto"
+        android:icon="@drawable/ic_remove_circle"
+        android:title="Gastos"
+        android:titleCondensed="Gastos" />
+
+    <item
+        android:id="@+id/nav_reportes"
+        android:icon="@drawable/ic_bar_chart"
+        android:title="Reportes"
+        android:titleCondensed="Reportes" />
+
+    <item
+        android:id="@+id/nav_mantenimiento"
+        android:icon="@drawable/ic_settings"
+        android:title="Configuración"
+        android:titleCondensed="Config" />
+
+</menu>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/glass_gradient_background"
+    tools:context=".ConfiguracionActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/glass_toolbar_background"
+        android:elevation="0dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="32dp">
+
+            </LinearLayout>
+
+            <!-- Título de sección -->
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catálogos Maestros"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/glass_text_primary"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:alpha="0.9" />
+
+            <!-- Proveedores -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_proveedores"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/glass_mini_card_background">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_business"
+                        app:tint="@color/glass_accent"
+                        android:layout_marginEnd="16dp"
+                        android:alpha="0.9" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Proveedores"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gestionar empresas y clientes"
+                            android:textSize="13sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.7"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/glass_text_on_glass"
+                        android:alpha="0.6" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tipos de Gasto -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_tipos_gasto"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/glass_mini_card_background">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_category"
+                        app:tint="@color/glass_expense"
+                        android:layout_marginEnd="16dp"
+                        android:alpha="0.9" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipos de Gasto"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Categorías de gastos del sistema"
+                            android:textSize="13sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.7"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/glass_text_on_glass"
+                        android:alpha="0.6" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tipos de Ingreso -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_tipos_ingreso"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/glass_mini_card_background">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_category"
+                        app:tint="@color/glass_success"
+                        android:layout_marginEnd="16dp"
+                        android:alpha="0.9" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipos de Ingreso"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Categorías de ingresos del sistema"
+                            android:textSize="13sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.7"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/glass_text_on_glass"
+                        android:alpha="0.6" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tipos de Comprobante -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_tipos_comprobante"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/glass_mini_card_background">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_receipt"
+                        app:tint="@color/glass_warning"
+                        android:layout_marginEnd="16dp"
+                        android:alpha="0.9" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipos de Comprobante"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Boletas, facturas y otros documentos"
+                            android:textSize="13sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.7"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/glass_text_on_glass"
+                        android:alpha="0.6" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Información adicional -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@drawable/glass_card_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/glass_accent"
+                            android:layout_marginEnd="12dp"
+                            android:alpha="0.9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Información del Sistema"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Versión: 1.0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/glass_text_on_glass"
+                        android:layout_marginBottom="6dp"
+                        android:alpha="0.8"
+                        android:fontFamily="sans-serif" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Control Financiero Personal"
+                        android:textSize="14sp"
+                        android:textColor="@color/glass_text_on_glass"
+                        android:layout_marginBottom="6dp"
+                        android:alpha="0.8"
+                        android:fontFamily="sans-serif" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gestiona tus ingresos y gastos de manera inteligente"
+                        android:textSize="13sp"
+                        android:textColor="@color/glass_text_on_glass"
+                        android:alpha="0.7"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

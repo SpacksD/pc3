@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="6dp"
+    style="@style/Widget.App.CardView"
+    android:clickable="true"
+    android:focusable="true"
+    app:rippleColor="@color/expense_red_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header con fondo de color -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/expense_background"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Icono de categoría -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_remove_circle"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/circle_background_professional"
+                android:padding="8dp"
+                app:tint="@color/expense_red" />
+
+            <!-- Información principal -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tipo_gasto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ALIMENTOS"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="2dp"
+                    tools:text="ALIMENTOS" />
+
+                <TextView
+                    android:id="@+id/tv_proveedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SUPERMERCADO XYZ"
+                    android:textAppearance="@style/TextAppearance.App.Body2"
+                    tools:text="SUPERMERCADO XYZ" />
+
+            </LinearLayout>
+
+            <!-- Monto destacado -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/tv_monto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S/ 125.50"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/expense_red"
+                    android:layout_marginBottom="4dp"
+                    tools:text="S/ 125.50" />
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_delete"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/text_hint"
+                    android:padding="6dp"
+                    android:contentDescription="Eliminar gasto" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Detalles expandidos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingTop="12dp">
+
+            <!-- Primera fila de detalles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FECHA"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_hint"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:id="@+id/tv_fecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15/01/2025"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        tools:text="15/01/2025" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COMPROBANTE"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_hint"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:id="@+id/tv_tipo_comprobante"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BOLETA"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        tools:text="BOLETA" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Serie/Número con estilo especial -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/surface_light"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_receipt"
+                    app:tint="@color/text_secondary"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N°:"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_serie_numero"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="B001-123456"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    tools:text="B001-123456" />
+
+                <!-- Badge de procesado -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/expense_red"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓"
+                        android:textColor="@color/text_on_primary"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROCESADO"
+                        android:textColor="@color/text_on_primary"
+                        android:textSize="8sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

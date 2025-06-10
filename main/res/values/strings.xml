@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gastos App</string>
+    <string name="registrar_gasto">Registrar Gasto</string>
+    <string name="registrar_ingreso">Registrar Ingreso</string>
+    <string name="ver_gastos">Ver Gastos</string>
+    <string name="ver_ingresos">Ver Ingresos</string>
+    <string name="reportes">Reportes</string>
+    <string name="proveedores">Proveedores</string>
+    <string name="total_ingresos">Total Ingresos</string>
+    <string name="total_gastos">Total Gastos</string>
+    <string name="balance">Balance</string>
+    <string name="tipo_gasto">Tipo de Gasto</string>
+    <string name="tipo_comprobante">Tipo de Comprobante</string>
+    <string name="proveedor">Proveedor</string>
+    <string name="serie_numero">Serie/Número</string>
+    <string name="fecha">Fecha</string>
+    <string name="monto">Monto</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="confirmar_eliminacion">¿Está seguro que desea eliminar este registro?</string>
+    <string name="registro_guardado">Registro guardado exitosamente</string>
+    <string name="error_guardar">Error al guardar el registro</string>
+    <string name="campo_requerido">Este campo es requerido</string>
+    <string name="monto_invalido">Ingrese un monto válido</string>
+    <string name="sin_registros">No hay registros para mostrar</string>
+    <string name="agregar_primero">Toca el botón + para agregar tu primer registro</string>
+    <string name="toca_el_bot_n_para_agregar_tu_primer_ingreso">Toca el botón + para agregar tu primer ingreso</string>
+    <string name="total_s_0_00">Total: S/ 0.00</string>
+    <string name="ingrese_el_nombre_del_proveedor_o_cliente">Ingrese el nombre del proveedor o cliente</string>
+    <string name="nombre_del_proveedor_cliente">Nombre del Proveedor/Cliente</string>
+    <string name="ejemplos_supermercado_xyz_empresa_abc_juan_p_rez">Ejemplos: SUPERMERCADO XYZ, EMPRESA ABC, JUAN PÉREZ</string>
+    <string name="no_hay_gastos_registrados">No hay gastos registrados</string>
+    <string name="toca_el_bot_n_para_agregar_tu_primer_gasto">Toca el botón + para agregar tu primer gasto</string>
+    <string name="s_0_00">S/ 0.00</string>
+</resources>
