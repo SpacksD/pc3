@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/activity_proveedores.xml -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#2196F3"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -115,7 +114,7 @@
                     android:text="Toca el botón + para agregar tu primer proveedor"
                     android:textSize="14sp"
                     android:textColor="#999999"
-                    />
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -132,6 +131,6 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         app:tint="#FFFFFF"
-        app:backgroundTint="?attr/colorPrimary" />
+        app:backgroundTint="#2196F3" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

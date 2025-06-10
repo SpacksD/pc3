@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.controldegastos.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +63,9 @@ public class ProveedoresAdapter extends RecyclerView.Adapter<ProveedoresAdapter.
 
     public void updateData(List<Proveedor> newProveedores) {
         this.proveedores.clear();
-        this.proveedores.addAll(newProveedores);
+        if (newProveedores != null) {
+            this.proveedores.addAll(newProveedores);
+        }
         notifyDataSetChanged();
     }
 

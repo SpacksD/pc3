@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         cardReportes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, com.example.gastosapp.ReportesActivity.class);
+                Intent intent = new Intent(MainActivity.this, ReportesActivity.class);
                 startActivity(intent);
             }
         });

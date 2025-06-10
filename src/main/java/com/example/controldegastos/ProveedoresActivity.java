@@ -2,22 +2,23 @@ package com.example.controldegastos;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.controldegastos.*;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class ProveedoresActivity extends AppCompatActivity {
+
+    private static final String TAG = "ProveedoresActivity";
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
@@ -31,125 +32,175 @@ public class ProveedoresActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proveedores);
 
-        initializeViews();
-        setupToolbar();
-        initializeDAO();
-        setupRecyclerView();
-        setupListeners();
-        loadData();
+        try {
+            setContentView(R.layout.activity_proveedores);
+            Log.d(TAG, "Layout cargado correctamente");
+
+            initializeViews();
+            setupToolbar();
+            initializeDAO();
+            setupRecyclerView();
+            setupListeners();
+            loadData();
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error en onCreate: " + e.getMessage(), e);
+        }
     }
 
     private void initializeViews() {
-        toolbar = findViewById(R.id.toolbar);
-        recyclerView = findViewById(R.id.recycler_view);
-        tvEmptyView = findViewById(R.id.tv_empty_view);
-        fabAgregar = findViewById(R.id.fab_agregar);
+        try {
+            toolbar = findViewById(R.id.toolbar);
+            recyclerView = findViewById(R.id.recycler_view);
+            tvEmptyView = findViewById(R.id.tv_empty_view);
+            fabAgregar = findViewById(R.id.fab_agregar);
+
+            Log.d(TAG, "toolbar: " + (toolbar != null ? "OK" : "NULL"));
+            Log.d(TAG, "recyclerView: " + (recyclerView != null ? "OK" : "NULL"));
+            Log.d(TAG, "fabAgregar: " + (fabAgregar != null ? "OK" : "NULL"));
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error en initializeViews: " + e.getMessage(), e);
+        }
     }
 
     private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Gestión de Proveedores");
+        try {
+            if (toolbar != null) {
+                setSupportActionBar(toolbar);
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    getSupportActionBar().setTitle("Gestión de Proveedores");
+                }
+                Log.d(TAG, "Toolbar configurado correctamente");
+            } else {
+                Log.w(TAG, "Toolbar es null");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error configurando toolbar: " + e.getMessage(), e);
         }
     }
 
     private void initializeDAO() {
-        gastoDAO = new GastosDAO(this);
+        try {
+            gastoDAO = new GastosDAO(this);
+            Log.d(TAG, "DAO inicializado correctamente");
+        } catch (Exception e) {
+            Log.e(TAG, "Error inicializando DAO: " + e.getMessage(), e);
+        }
     }
 
     private void setupRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ProveedoresAdapter(this, new ProveedoresAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Proveedor proveedor) {
-                // Implementar edición si es necesario
-                mostrarDialogoEditarProveedor(proveedor);
-            }
+        try {
+            if (recyclerView != null) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                adapter = new ProveedoresAdapter(this, new ProveedoresAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(Proveedor proveedor) {
+                        mostrarDialogoEditarProveedor(proveedor);
+                    }
 
-            @Override
-            public void onDeleteClick(Proveedor proveedor) {
-                // Por simplicidad, no implementamos eliminación física
-                // ya que puede tener referencias en comprobantes
-                Toast.makeText(ProveedoresActivity.this,
-                        "No se puede eliminar un proveedor que tiene registros asociados",
-                        Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onDeleteClick(Proveedor proveedor) {
+                        Toast.makeText(ProveedoresActivity.this,
+                                "No se puede eliminar un proveedor que tiene registros asociados",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+                recyclerView.setAdapter(adapter);
+                Log.d(TAG, "RecyclerView configurado correctamente");
+            } else {
+                Log.w(TAG, "RecyclerView es null");
             }
-        });
-        recyclerView.setAdapter(adapter);
+        } catch (Exception e) {
+            Log.e(TAG, "Error configurando RecyclerView: " + e.getMessage(), e);
+        }
     }
 
     private void setupListeners() {
-        fabAgregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarDialogoAgregarProveedor();
+        try {
+            if (fabAgregar != null) {
+                fabAgregar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mostrarDialogoAgregarProveedor();
+                    }
+                });
+                Log.d(TAG, "Listeners configurados correctamente");
+            } else {
+                Log.w(TAG, "FAB es null");
             }
-        });
+        } catch (Exception e) {
+            Log.e(TAG, "Error configurando listeners: " + e.getMessage(), e);
+        }
     }
 
     private void loadData() {
-        listaProveedores = gastoDAO.getAllProveedores();
+        try {
+            if (gastoDAO == null) {
+                Log.e(TAG, "gastoDAO es null");
+                return;
+            }
 
-        if (listaProveedores.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            tvEmptyView.setVisibility(View.VISIBLE);
-        } else {
-            recyclerView.setVisibility(View.VISIBLE);
-            tvEmptyView.setVisibility(View.GONE);
-            adapter.updateData(listaProveedores);
+            listaProveedores = gastoDAO.getAllProveedores();
+            Log.d(TAG, "Proveedores cargados: " + (listaProveedores != null ? listaProveedores.size() : "null"));
+
+            if (listaProveedores == null || listaProveedores.isEmpty()) {
+                if (recyclerView != null) recyclerView.setVisibility(View.GONE);
+                if (tvEmptyView != null) tvEmptyView.setVisibility(View.VISIBLE);
+            } else {
+                if (recyclerView != null) recyclerView.setVisibility(View.VISIBLE);
+                if (tvEmptyView != null) tvEmptyView.setVisibility(View.GONE);
+                if (adapter != null) adapter.updateData(listaProveedores);
+            }
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error cargando datos: " + e.getMessage(), e);
         }
     }
 
     private void mostrarDialogoAgregarProveedor() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Agregar Proveedor");
+        try {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Agregar Proveedor");
 
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_agregar_proveedor, null);
-        EditText etNombreProveedor = dialogView.findViewById(R.id.et_nombre_proveedor);
+            // Crear vista del diálogo programáticamente si no existe el layout
+            LinearLayout dialogView = new LinearLayout(this);
+            dialogView.setOrientation(LinearLayout.VERTICAL);
+            dialogView.setPadding(50, 20, 50, 20);
 
-        builder.setView(dialogView);
-        builder.setPositiveButton("Agregar", (dialog, which) -> {
-            String nombre = etNombreProveedor.getText().toString().trim();
-            if (!nombre.isEmpty()) {
-                Proveedor proveedor = new Proveedor(0, nombre.toUpperCase());
-                long id = gastoDAO.insertProveedor(proveedor);
-                if (id > 0) {
-                    Toast.makeText(this, "Proveedor agregado exitosamente", Toast.LENGTH_SHORT).show();
-                    loadData();
+            EditText etNombreProveedor = new EditText(this);
+            etNombreProveedor.setHint("Nombre del proveedor");
+            dialogView.addView(etNombreProveedor);
+
+            builder.setView(dialogView);
+            builder.setPositiveButton("Agregar", (dialog, which) -> {
+                String nombre = etNombreProveedor.getText().toString().trim();
+                if (!nombre.isEmpty()) {
+                    Proveedor proveedor = new Proveedor(0, nombre.toUpperCase());
+                    long id = gastoDAO.insertProveedor(proveedor);
+                    if (id > 0) {
+                        Toast.makeText(this, "Proveedor agregado exitosamente", Toast.LENGTH_SHORT).show();
+                        loadData();
+                    } else {
+                        Toast.makeText(this, "Error al agregar proveedor", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Error al agregar proveedor", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Ingrese el nombre del proveedor", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                Toast.makeText(this, "Ingrese el nombre del proveedor", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("Cancelar", null);
-        builder.show();
+            });
+            builder.setNegativeButton("Cancelar", null);
+            builder.show();
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error mostrando diálogo: " + e.getMessage(), e);
+            Toast.makeText(this, "Error al mostrar diálogo", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void mostrarDialogoEditarProveedor(Proveedor proveedor) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Editar Proveedor");
-
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_agregar_proveedor, null);
-        EditText etNombreProveedor = dialogView.findViewById(R.id.et_nombre_proveedor);
-        etNombreProveedor.setText(proveedor.getNombreProveedor());
-
-        builder.setView(dialogView);
-        builder.setPositiveButton("Actualizar", (dialog, which) -> {
-            String nombre = etNombreProveedor.getText().toString().trim();
-            if (!nombre.isEmpty()) {
-                // Aquí implementarías el método updateProveedor en GastoDAO
-                Toast.makeText(this, "Funcionalidad de edición pendiente", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Ingrese el nombre del proveedor", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("Cancelar", null);
-        builder.show();
+        Toast.makeText(this, "Funcionalidad de edición en desarrollo", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -161,4 +212,3 @@ public class ProveedoresActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
