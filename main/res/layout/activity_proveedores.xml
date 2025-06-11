@@ -1,136 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:orientation="vertical"
+    android:background="@drawable/glass_gradient_background">
 
-    <LinearLayout
+    <!-- Toolbar con estilo cristal -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/glass_toolbar_background"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#2196F3"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!-- Header Card -->
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#E3F2FD">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
+            <!-- Header Card con estilo cristal -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_business"
-                    android:tint="#1976D2"
-                    android:layout_marginEnd="16dp" />
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:padding="28dp"
+                    android:background="@drawable/glass_card_background"
+                    android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gestión de Proveedores"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#1976D2"
-                        android:layout_marginBottom="4dp" />
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_business"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/circle_background_professional"
+                        android:padding="12dp"
+                        app:tint="@color/glass_accent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Administra proveedores y clientes"
-                        android:textSize="14sp"
-                        android:textColor="#666666" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gestión de Proveedores"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Administra proveedores y clientes"
+                            android:textSize="14sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.8"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
-
-        <!-- RecyclerView -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <!-- Contenedor para RecyclerView y Empty View -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:clipToPadding="false" />
+                android:layout_height="wrap_content"
+                android:minHeight="400dp">
 
-            <!-- Empty View -->
-            <LinearLayout
-                android:id="@+id/tv_empty_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone"
-                android:padding="32dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/ic_business"
-                    android:tint="#CCCCCC"
-                    android:layout_marginBottom="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="No hay proveedores registrados"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#666666"
-                    android:layout_marginBottom="8dp" />
+                    android:clipToPadding="false"
+                    android:paddingVertical="8dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Empty View con estilo cristal -->
+                <LinearLayout
+                    android:id="@+id/tv_empty_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Toca el botón + para agregar tu primer proveedor"
-                    android:textSize="14sp"
-                    android:textColor="#999999"
-                    android:textAlignment="center" />
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:padding="32dp">
 
-            </LinearLayout>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/transparent">
 
-        </FrameLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="40dp"
+                            android:background="@drawable/glass_card_background">
 
-    </LinearLayout>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/ic_business"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/circle_background_professional"
+                                android:padding="20dp"
+                                app:tint="@color/glass_text_on_glass"
+                                android:alpha="0.6" />
 
-    <!-- Floating Action Button -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No hay proveedores registrados"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/glass_text_on_glass"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:alpha="0.9" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Toca el botón + para agregar tu primer proveedor"
+                                android:textSize="14sp"
+                                android:textColor="@color/glass_text_on_glass"
+                                android:textAlignment="center"
+                                android:alpha="0.7"
+                                android:fontFamily="sans-serif"
+                                android:lineSpacingExtra="2dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Floating Action Button con estilo cristal -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_agregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         android:src="@drawable/ic_add"
-        app:tint="#FFFFFF"
-        app:backgroundTint="#2196F3" />
+        app:tint="@color/surface_white"
+        app:backgroundTint="@color/glass_accent"
+        app:elevation="12dp"
+        app:borderWidth="0dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

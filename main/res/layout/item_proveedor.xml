@@ -4,60 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:focusable="true"
+    app:cardBackgroundColor="@android:color/transparent">
 
+    <!-- Una sola tarjeta con todo el contenido -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:background="@drawable/glass_mini_card_background"
+        android:padding="20dp">
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_business"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/circle_background"
-            android:padding="12dp"
-            app:tint="#607D8B" />
-
+        <!-- Fila principal con información del proveedor -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <!-- Icono de proveedor -->
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_business"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_background_professional"
+                android:padding="12dp"
+                app:tint="@color/glass_accent" />
+
+            <!-- Información del proveedor -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_nombre_proveedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SUPERMERCADO XYZ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/glass_text_on_glass"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    tools:text="SUPERMERCADO XYZ" />
+
+                <TextView
+                    android:id="@+id/tv_id_proveedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID: 1"
+                    android:textSize="12sp"
+                    android:textColor="@color/glass_text_on_glass"
+                    android:alpha="0.7"
+                    android:fontFamily="sans-serif"
+                    tools:text="ID: 1" />
+
+            </LinearLayout>
+
+            <!-- Botón de eliminar -->
+            <ImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_delete"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                app:tint="@color/glass_text_on_glass"
+                android:alpha="0.6"
+                android:contentDescription="Eliminar proveedor" />
+
+        </LinearLayout>
+
+        <!-- Línea divisoria sutil -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/glass_border"
+            android:layout_marginVertical="8dp"
+            android:alpha="0.3" />
+
+        <!-- Fila inferior con estado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_business"
+                app:tint="@color/glass_accent"
+                android:layout_marginEnd="8dp"
+                android:alpha="0.8" />
 
             <TextView
-                android:id="@+id/tv_nombre_proveedor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Proveedor activo"
+                android:textSize="13sp"
+                android:textColor="@color/glass_text_on_glass"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif" />
+
+            <!-- Badge de estado -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SUPERMERCADO XYZ"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#333333"
-                android:layout_marginBottom="4dp" />
-            <TextView
-                android:id="@+id/tv_id_proveedor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID: 1"
-                android:textSize="12sp"
-                android:textColor="#666666" />
+                android:orientation="horizontal"
+                android:background="@color/glass_accent"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓"
+                    android:textColor="@color/surface_white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="3dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACTIVO"
+                    android:textColor="@color/surface_white"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1" />
+
+            </LinearLayout>
+
         </LinearLayout>
-        <ImageButton
-            android:id="@+id/btn_delete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_delete"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            app:tint="#999999"
-            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 
