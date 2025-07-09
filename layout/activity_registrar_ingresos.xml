@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/glass_gradient_background">
+
+    <!-- Toolbar con estilo cristal -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/glass_toolbar_background"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header Card con estilo cristal -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="28dp"
+                    android:background="@drawable/glass_success_card_background"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_add_circle"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/circle_background_professional"
+                        android:padding="14dp"
+                        app:tint="@color/glass_success" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nuevo Ingreso"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="4dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registre sus ingresos y ganancias"
+                            android:textSize="14sp"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:alpha="0.8"
+                            android:fontFamily="sans-serif" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Formulario con estilo cristal -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="28dp"
+                    android:background="@drawable/glass_card_background">
+
+                    <!-- Tipo de Ingreso -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo de Ingreso"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@drawable/glass_mini_card_background"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_trending_up"
+                                app:tint="@color/glass_success"
+                                android:layout_marginEnd="12dp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_tipo_ingreso"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Proveedor/Cliente -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cliente / Empresa"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@drawable/glass_mini_card_background"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_business"
+                                app:tint="@color/glass_success"
+                                android:layout_marginEnd="12dp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_proveedor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Fecha -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@drawable/glass_mini_card_background"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_calendar_today"
+                                app:tint="@color/glass_success"
+                                android:layout_marginEnd="12dp" />
+
+                            <EditText
+                                android:id="@+id/et_fecha"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:hint="Seleccione fecha"
+                                android:textColor="@color/glass_text_on_glass"
+                                android:textColorHint="@color/glass_text_on_glass"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:fontFamily="sans-serif" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Monto -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monto (S/)"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@drawable/glass_mini_card_background"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="S/"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/glass_success"
+                                android:layout_marginEnd="12dp"
+                                android:fontFamily="sans-serif-medium" />
+
+                            <EditText
+                                android:id="@+id/et_monto"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:hint="0.00"
+                                android:textColor="@color/glass_text_on_glass"
+                                android:textColorHint="@color/glass_text_on_glass"
+                                android:inputType="numberDecimal"
+                                android:maxLength="10"
+                                android:fontFamily="sans-serif" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Descripción Opcional -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Descripción (opcional)"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/glass_text_on_glass"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/glass_mini_card_background"
+                            android:padding="16dp">
+
+                            <EditText
+                                android:id="@+id/et_descripcion"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:background="@android:color/transparent"
+                                android:hint="Descripción adicional del ingreso"
+                                android:textColor="@color/glass_text_on_glass"
+                                android:textColorHint="@color/glass_text_on_glass"
+                                android:inputType="textMultiLine"
+                                android:maxLines="3"
+                                android:maxLength="200"
+                                android:gravity="top"
+                                android:fontFamily="sans-serif" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Botones de acción con estilo cristal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:background="@drawable/glass_bottom_nav_background">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/glass_mini_card_background">
+
+                <Button
+                    android:id="@+id/btn_cancelar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Cancelar"
+                    android:textColor="@color/glass_text_on_glass"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif-medium" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@color/glass_success">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="@color/surface_white"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_guardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Guardar Ingreso"
+                    android:textColor="@color/surface_white"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif-medium" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>
